@@ -1,0 +1,50 @@
+*{
+    font-family: Bradley Hand, cursive;
+}
+body{
+    background-color: #ffefb5;
+    margin: 0;
+    padding: 0;
+
+}
+.navbar{
+    margin-bottom: 20px;
+}
+.container{
+    margin: 20px;
+}
+#title{
+    font-size: 60px;
+    text-align: center;
+    background-image: url("paper-background.jpg");
+    padding: 40px;
+    margin-bottom:  0;
+}
+
+#title_break{
+    height: 2px;
+    background-color: rgb(207, 64, 64);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.sub_btn {
+    border-style: dotted;
+    padding-right: 40px;
+    margin-left: 10px;
+    transition: 0.3s;
+    border-radius: 6px;
+  }
+
+#newToDo{
+    background-color: #f3e3aa;
+    margin: 0;
+    width: fit-content;
+    border-style: dotted;
+    
+}
+
+#list{
+    border-style: dotted;
+}
