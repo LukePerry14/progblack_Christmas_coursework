@@ -15,46 +15,37 @@
 <h1 id="title">To Do</h1>
 <hr id="title_break">
 
-<nav class="navbar navbar-expand-lg navbar-light" style = "background-color: #ffefb5;">
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            
-          </ul>
-
-    </div>
-</nav>
-
-
 
 <div class = "container">
     <div class = "row" id = "page">
+        
+        <div class = "col-2"  id = "navvbar">
+            <nav class="nav nav-tabs flex-column">
+                <a class="nav-link active" href="#">TodayToDo</a>
+                <a class="nav-link" href="gub">TmrToDo</a>
+            </nav>
 
-        <div class = "col-" id = "newToDo">
-<h2>New ToDo</h2>
-
-<form id="item-entry">
-    <label for="inp_title">Title:</label><br>
-    <input type="text" id="inp_title" name="inp_title" min="1"><br><br>
-
-    <label for="inp_desc">Description:</label><br>
-    <textarea name="inp_desc" rows="12" cols="35" wrap="hard"></textarea><br>
-
-    <label for="myfile">Upload an image (optional):</label>
-    <input type="file" id="inp_img" name="myfile" accept="image/*"><br><br>
-
-    <input type="submit" value="Add" id="sub_btn">
-</form>
         </div>
 
-        <div class="col-sm" id = "list">
+
+        <div class = "col-5" id = "newToDo">
+            <h2>New ToDo</h2>
+
+            <form id="item-entry">
+                <label for="inp_title">Title:</label><br>
+                <input type="text" id="inp_title" name="inp_title" min="1"><br><br>
+
+                <label for="inp_desc">Description:</label><br>
+                <textarea name="inp_desc" rows="12" cols="35" wrap="hard"></textarea><br>
+
+                <label for="myfile">Upload an image (optional):</label>
+                <input type="file" id="inp_img" name="myfile" accept="image/*"><br><br>
+
+                <input type="submit" value="Add" id="sub_btn">
+            </form>
+        </div>
+
+        <div class="col-lg" id = "list">
             <ul>
                 <li>test</li>
                 <li>test</li>

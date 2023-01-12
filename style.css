@@ -48,3 +48,11 @@ body{
 #list{
     border-style: dotted;
 }
+
+.nav.flex-column a {
+    color: black;
+}
+
+.nav.nav-tabs {
+    background-color: #ffefb5;
+}
