@@ -7,9 +7,6 @@ body{
     padding: 0;
 
 }
-.navbar{
-    margin-bottom: 20px;
-}
 .container{
     margin: 20px;
 }
@@ -48,11 +45,20 @@ body{
 #list{
     border-style: dotted;
 }
-
-.nav.flex-column a {
-    color: black;
+.btn-group button {
+    background-color: #ffefb5; /* Green background */
+    border: dotted black; /* Green border */
+    color: black; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    display: block; /* Make the buttons appear below each other */
 }
-
-.nav.nav-tabs {
-    background-color: #ffefb5;
+  
+.btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+  
+  /* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #f3e3aa;
 }
