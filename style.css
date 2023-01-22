@@ -9,6 +9,12 @@ body{
 }
 .container{
     margin: 20px;
+    margin-right: 0;
+    padding-right: 0;
+}
+.col-lg{
+    padding-right: 0;
+    margin-right: 0;
 }
 #title{
     font-size: 60px;
@@ -46,19 +52,29 @@ body{
     border-style: dotted;
 }
 .btn-group button {
-    background-color: #ffefb5; /* Green background */
-    border: dotted black; /* Green border */
-    color: black; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    display: block; /* Make the buttons appear below each other */
+    background-color: #ffefb5;
+    border: dotted black;
+    color: black;
+    padding: 15px;
+    cursor: pointer;
 }
   
 .btn-group button:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
+    border-bottom: none; 
 }
   
-  /* Add a background color on hover */
 .btn-group button:hover {
     background-color: #f3e3aa;
+}
+
+.delete-btn{
+    background-color: #ffefb5;
+    border: none;
+    position: relative;
+    right: 0;
+}
+#navvbar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }

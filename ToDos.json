@@ -1,34 +1,28 @@
 {
     "TodayToDo": {
-        "1": {
-            "title": "test_title",
+        "test_title": {
             "desc" : "test_desc",
             "img" : "/misimg.png"
         },
-        "2": {
-            "title": "test_title2",
+        "test_title2": {
             "desc" : "test_desc2",
             "img" : "/misimg.png"
         },
-        "3": {
-            "title": "test_title3",
+        "test_title3": {
             "desc" : "test_desc3",
             "img" : "/misimg.png"
         }
     },
     "TmrToDo" : {
-        "1": {
-            "title": "tmr_test_title",
+        "tmr_test_title": {
             "desc" : "tmr_test_desc",
             "img" : "/misimg.png"
         },
-        "2": {
-            "title": "tmr_test_title2",
+        "tmr_test_title2": {
             "desc" : "tmr_test_desc2",
             "img" : "/misimg.png"
         },
-        "3": {
-            "title": "tmr_test_title3",
+        "tmr_test_title3": {
             "desc" : "tmr_test_desc3",
             "img" : "/misimg.png"
         }
