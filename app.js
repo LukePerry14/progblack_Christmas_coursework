@@ -1,73 +1,96 @@
-const express = require('express')
-const app = express()
-const multer = require('multer')
-const fs = require('fs')
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
+const express = require('express');
+const app = express();
+
+const fs = require('fs');
+
+const jayuo = './jsons/TodayToDo.json';
+const jayum = './jsons/TmrToDo.json';
+let dayJSON = require(jayuo);
+let tmrJSON = require(jayum);
 app.use(express.static('client'));
-endpointRoot = 'http://127.0.0.1:8090/'
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
-async function addToDo () {
-  const n_todo = document.getElementById('item-entry')
-  let subsec = document.getElementById("l_title").innerText;
-  n_todo.addEventListener('submit', async function (event){
-    event.preventDefault();
+/* end of reliances */
 
-    const data = new FormData(n_todo);
-
-    const dataJSON = JSON.stringify(Object.fromEntries(data))
-
-    const response = await fetch(endpointRoot + 'newToDo',
-    {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: dataJSON
-
-    });
-    loadjson(subsec);
-    n_todo.reset();
-  })
-}
-
-app.post('/newToDo', function(req, resp){
-  let subsec = document.getElementById("l_title").innerText;
-  try {
-    jsonData = fs.readFileSync('ToDos.json', 'utf8');
-    data = JSON.parse(jsonData);
-  } catch (err) {
-    console.log("File not found");
-  }
-  let sub = data[subsec]
-  sub[req.body.inp_title] = req.body.inp_desc
-  fs.writeFileSync("ToDos.json", JSON.stringify(data))
-  resp.send(data)
-  /* let subsec = document.getElementById("l_title").innerText;
-  console.log("here")
-  resp.send(200)
-  if (subsec == "Select a ToDo"){
-    resp.send(400);
-  }
-  let data = {};
-  let jsonData = {};
-  try {
-    jsonData = fs.readFileSync('ToDos.json', 'utf8');
-    data = JSON.parse(jsonData);
-  } catch (err) {
-    console.log("File not found");
-  }
-
-  let r_data = data[subsec]
-
-  r_data[req.body.inp_title] = {
-    desc: req.body.inp_desc,
-    image: req.file.inp_img
-  };
-
-  jsonData = JSON.stringify(data);
-
-  fs.writeFileSync('Todos.json', jsonData);
-  loadjson(document.getElementById("l_title").innerText)
-  res.send(200); */
+app.get('/TodayTitleToDo', function (req, resp) {
+    try {
+      resp.send(dayJSON);
+    } catch (err) {
+      console.log(err);
+    }
 });
+
+app.get('/TmrTitleToDo', function (req, resp) {
+    try {
+        resp.send(tmrJSON);
+      } catch (err) {
+        console.log(err);
+      }
+});
+
+app.get('/TodaydescToDo', function (req, resp) {
+  try {
+    resp.send(dayJSON);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get('/TmrdescToDo', function (req, resp) {
+  try {
+      resp.send(tmrJSON);
+    } catch (err) {
+      console.log(err);
+    }
+});
+
+app.post('/TodaynewToDo', function (req, resp) {
+    try {
+      dayJSON[req.body.inptitle] = req.body.inpdesc;
+      fs.writeFileSync(jayuo, JSON.stringify(dayJSON));
+      resp.send(200);
+    } catch (err) {
+      console.log(err);
+    }
+});
+
+app.post('/TmrnewToDo', function (req, resp) {
+  try {
+    tmrJSON[req.body.inptitle] = req.body.inpdesc;
+    fs.writeFileSync(jayum, JSON.stringify(tmrJSON));
+    resp.send(200);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post('/Todayitemdel', async function (req, resp) {
+  try {
+    const keysToRemove = [];
+    keysToRemove.push(req.body.removeditem);
+    dayJSON = Object.fromEntries(
+    Object.entries(dayJSON).filter(([k]) => !keysToRemove.includes(k))
+    );
+    fs.writeFileSync(jayuo, JSON.stringify(dayJSON));
+    resp.send(200);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post('/Tmritemdel', async function (req, resp) {
+  try {
+    const keysToRemove = [];
+    keysToRemove.push(req.body.removeditem);
+    tmrJSON = Object.fromEntries(
+    Object.entries(tmrJSON).filter(([k]) => !keysToRemove.includes(k))
+    );
+    fs.writeFileSync(jayum, JSON.stringify(tmrJSON));
+    resp.send(200);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+module.exports = app;
